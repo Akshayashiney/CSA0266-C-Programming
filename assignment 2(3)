@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i;
+    float num[100], sum = 0.0, avg;
+    printf("Enter the number of elements you want to insert: ");
+    scanf("%d", &n);
+    for(i = 0; i < n; ++i)
+    {
+        printf("Enter number %d: ", i+1);
+        scanf("%f", &num[i]);
+        sum += num[i];
+    }
+    //Sorting
+    for(i = 0; i < n; ++i)
+    {
+        for(int j = i + 1; j < n; ++j)
+        {
+            if(num[i] < num[j])
+            {
+                float temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
+            }
+        }
+    }
+    //Finding second largest and smallest
+    float secondLargest = num[1];
+    float secondSmallest = num[n-2];
+    avg = (secondLargest + secondSmallest) / 2;
+    printf("Second Largest Element : %.2f\n", secondLargest);
+    printf("Second Smallest Element : %.2f\n", secondSmallest);
+    printf("Average of Second Largest and Second Smallest Element : %.2f\n", avg);
+    
+    //Checking if average is present in given array
+    int flag=0;
+    for(i=0;i<n;i++)
+        if(avg==num[i])
+            flag=1;
+    
+    if(flag==1)
+        printf("\nAverage is present in given array.");
+    else
+        printf("\nAverage is not present in given array.");
+    
+    return 0;
+}
