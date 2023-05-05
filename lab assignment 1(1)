@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int GeneratePrimeNumbers(int low_number, int high_number) {
+    int flag, temp;
+    if (low_number > high_number) {
+        temp;
+        temp = low_number;
+        low_number = high_number;
+        high_number = temp;
+    }
+    printf ("nThe prime numbers between %d and %d are: ", low_number, high_number);
+    for (int i = low_number; i <= high_number; i++) {
+        flag = 0 ;
+        if (i <= 1) {
+            continue ;
+        }
+        for (int j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                flag = 1 ;
+                break ;
+            }
+        }
+        if (flag == 0)
+            printf ("%d ", i);
+    }
+    printf ("n");
+    return 0 ;
+}
+int main() {
+    int low_number, high_number;
+    printf ("Enter the two intervals:n");
+    scanf ("%d %d", &low_number, &high_number);
+    GeneratePrimeNumbers (low_number, high_number);
+    return 0 ;
+    }
