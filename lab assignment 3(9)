@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+    int source_array[100], dest_array[100];
+    int size, i;
+    int *source_ptr = source_array;
+    int *dest_ptr = dest_array;
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    printf("Enter the elements of the array: ");
+    for (i = 0; i < size; i++)
+        scanf("%d", source_ptr + i);
+
+    for (i = 0; i < size; i++)
+        *(dest_ptr + i) = *(source_ptr + i);
+
+    printf("Elements of original array: ");
+    for (i = 0; i < size; i++)
+        printf("%d ", *(source_ptr + i));
+
+    printf("\nElements of new array: ");
+    for (i = 0; i < size; i++)
+        printf("%d ", *(dest_ptr + i));
+
+    return 0;
+}
